@@ -36,7 +36,7 @@ public class TestController {
     }
 
     @GetMapping("/debug")
-    public void debug() {
+    public void _debug() {
         try {
             kafkaLogger.debug("debug log test");
         } catch (Exception ee) {

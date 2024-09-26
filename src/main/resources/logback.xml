@@ -39,7 +39,7 @@
         <appender-ref ref="STDOUT"/>
     </root>
 
-    <root level="info">
+    <root level="DEBUG">
         <appender-ref ref="ASYNC" />
     </root>
 
