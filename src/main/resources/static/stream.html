@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebSocket Logs</title>
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #2d2d2d;
+            color: #dcdcdc;
+            margin: 0;
+            padding: 20px;
+        }
+        #logs {
+            background-color: #1e1e1e;
+            border: 1px solid #3c3c3c;
+            padding: 10px;
+            height: 90vh;
+            overflow-y: scroll;
+        }
+        .log-entry {
+            padding: 5px 0; /* 기본값 5px의 30% */
+            margin: 5px 0; /* 여백 추가 */
+            line-height: 1; /* 줄간격을 기본값의 절반으로 설정 */
+        }
+        .log-entry:nth-child(odd) {
+            background-color: #333;
+        }
+        .log-entry:nth-child(even) {
+            background-color: #3a3a3a;
+        }
+    </style>
+</head>
+<body>
+<div id="logs"></div>
+
+<script>
+    var socket = new WebSocket("ws://localhost:8080/logs");
+
+    socket.onmessage = function(event) {
+        var logDiv = document.getElementById("logs");
+        var newLog = document.createElement("pre");
+        newLog.textContent = event.data;
+        newLog.className = "log-entry";
+        logDiv.appendChild(newLog);
+
+        // 새로운 로그가 추가될 때 자동으로 스크롤을 맨 아래로 이동
+        logDiv.scrollTop = logDiv.scrollHeight;
+    };
+</script>
+</body>
+</html>

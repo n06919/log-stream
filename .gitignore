@@ -1,0 +1,7 @@
+/log-stream.eml
+/.gradle
+/build
+.classpath
+.project
+/.idea
+/**/*.eml
