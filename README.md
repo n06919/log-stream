@@ -32,15 +32,19 @@ $ ./bin/kafka-server-start.sh config/kraft/server.properties
 # 로그 모니터링
 http://localhost:8080/stream.html
 ```
-![img.png](img.png)
+
 ### 로그 생성 테스트
 ```shell
-# info 로그
-curl -X GET http://localhost:8081/test/hello\?name\=tom
+## info 로그
+curl -X GET http://localhost:8081/test/info
+
+## debug 로그
+curl -X GET http://localhost:8081/test/debug
+
+## warn 로그
+curl -X GET http://localhost:8081/test/warn
 
 ## error 로그
-curl -X GET http://localhost:8081/test/hello\?name\=john
-
-
+curl -X GET http://localhost:8081/test/error
 ```
 
