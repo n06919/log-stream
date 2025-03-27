@@ -65,3 +65,6 @@ curl -X GET http://localhost:8081/test/error
 # warn 로그
 curl -X GET http://localhost:8081/test/warn
 ```
+## 사용 설명서
+본 프로젝트는 Kafka를 이용한 로그 스트리밍 애플리케이션입니다.
+아래 절차에 따라 설치 및 사용 가능합니다.
